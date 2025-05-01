@@ -1,3 +1,5 @@
+"use client";
+
 import { educations } from "@/utils/data/educationData";
 import Image from "next/image";
 import { BsPersonWorkspace } from "react-icons/bs";
