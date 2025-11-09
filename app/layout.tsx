@@ -3,6 +3,14 @@ import "./globals.css";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import { ScrollProvider } from "./context/ScrollContext";
+import Script from "next/script";
+import { Poppins } from 'next/font/google';
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700',  '800'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +24,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="container mx-auto text-white">
+      <body className={`${poppins.className} text-white`}>
+        <Script
+          src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"
+          strategy="beforeInteractive"
+          id="three-js"
+        />
+        <Script
+          src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"
+          strategy="beforeInteractive"
+          id="vanta-js"
+        />
         <ScrollProvider>
           <Header />
           {children}
